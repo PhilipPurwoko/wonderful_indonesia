@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "661300963735",
+    "project_id": "wonderful-indonesia-2021",
+    "storage_bucket": "wonderful-indonesia-2021.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:661300963735:android:23983212b08ff3993a7cd2",
+        "android_client_info": {
+          "package_name": "com.example.wonderful_indonesia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "661300963735-3vrk9m9vphvimu4l8ikin1fg5kjso1bd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAKkJsWIECgRVyvThxQ8SUcUujLWG5s2OY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "661300963735-3vrk9m9vphvimu4l8ikin1fg5kjso1bd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

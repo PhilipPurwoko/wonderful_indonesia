@@ -1,0 +1,13 @@
+include: package:flutter_lints/flutter.yaml
+
+linter:
+    rules:
+        always_specify_types: true
+        avoid_classes_with_only_static_members: true
+        file_names: false
+        sort_pub_dependencies: false
+analyzer:
+    exclude:
+        - lib/generated_plugin_registrant.dart
+    errors:
+        todo: info
