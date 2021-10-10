@@ -6,6 +6,7 @@ linter:
         avoid_classes_with_only_static_members: true
         file_names: false
         sort_pub_dependencies: false
+        sort_constructors_first: true
 analyzer:
     exclude:
         - lib/generated_plugin_registrant.dart

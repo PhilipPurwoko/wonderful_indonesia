@@ -1,19 +1,18 @@
-class Attraction {
-  Attraction({
+import 'package:json_annotation/json_annotation.dart';
+part 'attraction_model.g.dart';
+
+@JsonSerializable()
+class AttractionModel {
+  AttractionModel({
     required this.name,
     required this.address,
     required this.description,
     required this.imageUrl,
   });
 
-  factory Attraction.fromJson(Map<String, dynamic> json) {
-    return Attraction(
-      name: json['name'],
-      address: json['address'],
-      description: json['description'],
-      imageUrl: json['imageUrl'],
-    );
-  }
+  factory AttractionModel.fromJson(Map<String, dynamic> json) =>
+      _$AttractionModelFromJson(json);
+  Map<String, dynamic> toJson() => _$AttractionModelToJson(this);
 
   String name;
   String address;
