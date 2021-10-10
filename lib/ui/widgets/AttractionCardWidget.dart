@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:wonderful_indonesia/models/attraction_model.dart';
-import 'package:wonderful_indonesia/routes.dart';
+import 'package:wonderful_indonesia/constant.dart';
+import 'package:wonderful_indonesia/models/attraction/attraction_model.dart';
 
 class AttractionCard extends StatelessWidget {
   const AttractionCard(

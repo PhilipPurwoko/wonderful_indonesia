@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:wonderful_indonesia/models/user_model.dart';
+import 'package:wonderful_indonesia/models/user/user_model.dart';
 import 'package:wonderful_indonesia/provider/auth_provider.dart';
 
 class LoginScreen extends StatefulWidget {

@@ -7,6 +7,7 @@ linter:
         file_names: false
         sort_pub_dependencies: false
         sort_constructors_first: true
+        prefer_single_quotes: true
 analyzer:
     exclude:
         - lib/generated_plugin_registrant.dart

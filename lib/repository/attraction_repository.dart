@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:wonderful_indonesia/models/attraction_model.dart';
+import 'package:wonderful_indonesia/models/attraction/attraction_model.dart';
 
 class AttractionRepostitory {
   final Stream<QuerySnapshot<Map<String, dynamic>>> attractionStream =

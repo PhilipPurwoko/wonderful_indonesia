@@ -4,9 +4,11 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:provider/provider.dart';
 import 'package:wonderful_indonesia/provider/auth_provider.dart';
+import 'package:wonderful_indonesia/provider/onboarding_provider.dart';
 import 'package:wonderful_indonesia/routes.dart';
-import 'package:wonderful_indonesia/ui/screens/dashboard_screen.dart';
+import 'package:wonderful_indonesia/ui/screens/dashboard/dashboard_screen.dart';
 import 'package:wonderful_indonesia/ui/screens/login_screen.dart';
+import 'package:wonderful_indonesia/ui/screens/onboarding_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,6 +27,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<AuthProvider>(
           create: (_) => AuthProvider(),
         ),
+        ChangeNotifierProvider<OnboardingProvider>(
+          create: (_) => OnboardingProvider(),
+        ),
       ],
       child: FutureBuilder<FirebaseApp>(
           future: _initialization,
@@ -36,14 +41,17 @@ class MyApp extends StatelessWidget {
                 theme: ThemeData(
                   primarySwatch: Colors.blue,
                 ),
-                home: Consumer<AuthProvider>(builder: (
+                home: Consumer2<AuthProvider, OnboardingProvider>(builder: (
                   BuildContext context,
                   AuthProvider authProvider,
+                  OnboardingProvider onboardingProvider,
                   _,
                 ) {
-                  return authProvider.isAuthenticated
-                      ? const DashboardScreen()
-                      : const LoginScreen();
+                  return onboardingProvider.isOnboarded
+                      ? authProvider.isAuthenticated
+                          ? const DashboardScreen()
+                          : const LoginScreen()
+                      : const OnboardingScreen();
                 }),
                 getPages: pages,
               );

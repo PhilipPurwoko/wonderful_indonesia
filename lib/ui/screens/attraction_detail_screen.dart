@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:wonderful_indonesia/models/attraction_model.dart';
+import 'package:wonderful_indonesia/models/attraction/attraction_model.dart';
 // import 'package:wonderful_indonesia/models/attraction_model.dart';
 
 class AttractionDetail extends StatelessWidget {

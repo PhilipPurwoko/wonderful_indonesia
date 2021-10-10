@@ -1,9 +1,10 @@
 import 'package:flutter/foundation.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:wonderful_indonesia/models/user_model.dart';
+import 'package:wonderful_indonesia/constant.dart';
+import 'package:wonderful_indonesia/models/user/user_model.dart';
 
 class AuthProvider with ChangeNotifier {
-  final String _userKey = 'user';
+  final String _userKey = StorageKeys.userKey;
   final GetStorage _box = GetStorage();
 
   bool get isAuthenticated {
