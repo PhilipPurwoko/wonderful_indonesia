@@ -29,9 +29,15 @@ class _LoginScreenState extends State<LoginScreen> {
           child: Form(
             key: _authFormKey,
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
+                const Text('WELCOME'),
+                const SizedBox(height: 10),
                 TextFormField(
                   controller: _usernameController,
+                  decoration: const InputDecoration(
+                    hintText: 'Username',
+                  ),
                   validator: (String? value) {
                     if (value == null || value.isEmpty) {
                       return 'Username is required';
@@ -42,23 +48,27 @@ class _LoginScreenState extends State<LoginScreen> {
                     return null;
                   },
                 ),
+                const SizedBox(height: 10),
                 Consumer<AuthProvider>(builder: (
                   BuildContext context,
                   AuthProvider authProvider,
                   _,
                 ) {
-                  return ElevatedButton(
-                    onPressed: () {
-                      final bool isFormValid =
-                          _authFormKey.currentState!.validate();
+                  return SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        final bool isFormValid =
+                            _authFormKey.currentState!.validate();
 
-                      if (isFormValid) {
-                        authProvider.authenticate(
-                          UserModel(name: _usernameController.text),
-                        );
-                      }
-                    },
-                    child: const Text('Login'),
+                        if (isFormValid) {
+                          authProvider.authenticate(
+                            UserModel(name: _usernameController.text),
+                          );
+                        }
+                      },
+                      child: const Text('Login'),
+                    ),
                   );
                 }),
               ],

@@ -13,13 +13,32 @@ class AttractionCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () => Get.toNamed(RouteName.detail, arguments: attraction),
-      child: ListTile(
-        title: Text(attraction.name),
-        subtitle: Text(attraction.address),
-        leading: Image.network(attraction.imageUrl),
-        isThreeLine: true,
+    return Card(
+      margin: const EdgeInsets.symmetric(horizontal: 16),
+      clipBehavior: Clip.antiAlias,
+      child: InkWell(
+        onTap: () => Get.toNamed(RouteName.detail, arguments: attraction),
+        child: Column(
+          children: <Widget>[
+            ListTile(
+              leading: const Icon(Icons.attractions),
+              title: Text(attraction.name),
+              subtitle: Text(
+                attraction.address,
+                overflow: TextOverflow.ellipsis,
+              ),
+              trailing: IconButton(
+                icon: const Icon(Icons.favorite),
+                onPressed: () {},
+              ),
+            ),
+            Image.network(attraction.imageUrl),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Text(attraction.description),
+            ),
+          ],
+        ),
       ),
     );
   }

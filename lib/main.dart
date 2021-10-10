@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:wonderful_indonesia/provider/auth_provider.dart';
 import 'package:wonderful_indonesia/provider/onboarding_provider.dart';
 import 'package:wonderful_indonesia/routes.dart';
+import 'package:wonderful_indonesia/theme.dart';
 import 'package:wonderful_indonesia/ui/screens/dashboard/dashboard_screen.dart';
 import 'package:wonderful_indonesia/ui/screens/login_screen.dart';
 import 'package:wonderful_indonesia/ui/screens/onboarding_screen.dart';
@@ -38,9 +39,8 @@ class MyApp extends StatelessWidget {
               return GetMaterialApp(
                 title: 'Wonderful Indonesia',
                 debugShowCheckedModeBanner: false,
-                theme: ThemeData(
-                  primarySwatch: Colors.blue,
-                ),
+                theme: theme,
+                getPages: pages,
                 home: Consumer2<AuthProvider, OnboardingProvider>(builder: (
                   BuildContext context,
                   AuthProvider authProvider,
@@ -53,7 +53,6 @@ class MyApp extends StatelessWidget {
                           : const LoginScreen()
                       : const OnboardingScreen();
                 }),
-                getPages: pages,
               );
             }
             if (snapshot.hasError) {

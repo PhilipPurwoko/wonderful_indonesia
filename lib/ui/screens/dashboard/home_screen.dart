@@ -15,10 +15,14 @@ class HomeScreen extends StatelessWidget {
         AsyncSnapshot<List<AttractionModel>> snapshot,
       ) {
         if (snapshot.hasData) {
-          return ListView(
-            children: snapshot.data!
-                .map((AttractionModel attraction) => AttractionCard(attraction))
-                .toList(),
+          final List<AttractionCard> attractionCard = snapshot.data!
+              .map((AttractionModel attraction) => AttractionCard(attraction))
+              .toList();
+
+          return ListView.separated(
+            itemCount: attractionCard.length,
+            separatorBuilder: (_, __) => const SizedBox(height: 16),
+            itemBuilder: (_, int index) => attractionCard[index],
           );
         }
         if (snapshot.hasError) {

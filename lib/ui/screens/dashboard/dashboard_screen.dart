@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:wonderful_indonesia/provider/auth_provider.dart';
 import 'package:wonderful_indonesia/ui/screens/dashboard/home_screen.dart';
 import 'package:wonderful_indonesia/ui/screens/dashboard/map_screen.dart';
+import 'package:wonderful_indonesia/ui/screens/dashboard/profile_screen.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({Key? key}) : super(key: key);
@@ -16,6 +17,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
   final List<Widget> _screens = <Widget>[
     const HomeScreen(),
     const MapScreen(),
+    const ProfileScreen(),
   ];
 
   @override
@@ -30,11 +32,25 @@ class _DashboardScreenState extends State<DashboardScreen> {
       child: Scaffold(
         appBar: AppBar(
           title: const Text('Wonderful Indonesia'),
+          backgroundColor: Theme.of(context).primaryColor,
           actions: <Widget>[
-            Text(authProvider.user.name),
-            IconButton(
-              onPressed: () => authProvider.logout(),
-              icon: const Icon(Icons.exit_to_app),
+            PopupMenuButton<String>(
+              onSelected: (String value) {
+                switch (value) {
+                  default:
+                    authProvider.logout();
+                }
+              },
+              itemBuilder: (BuildContext ctx) {
+                return <PopupMenuItem<String>>[
+                  const PopupMenuItem<String>(
+                    value: 'Logout',
+                    child: InkWell(
+                      child: Text('Logout'),
+                    ),
+                  ),
+                ];
+              },
             ),
           ],
         ),
@@ -54,6 +70,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
             BottomNavigationBarItem(
               icon: Icon(Icons.map),
               label: 'Map',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+              label: 'Profile',
             ),
           ],
           onTap: (int index) {
